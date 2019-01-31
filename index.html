@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Parallax</title>
+  <meta name="viewport" content="width=320px, initial-scale=0.4, maximum-scale=1, user-scalable=yes">
+  <meta name="format-detection" content="telephone=no">
+  <meta property="og:title" content="Parallax">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Parallax">
+  <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+<body>
+
+<div id="loading" class="loading">
+    Loading...
+</div>
+
+<div id="container" class="container container_hidden">
+  <div id="scene"
+     class="scene"
+     data-relative-input="true"
+     data-hover-only="true"
+     data-clip-relative-input="true"
+     data-calibrate-x="true"
+     data-calibrate-y="true"
+     data-limit-x="50"
+     data-limit-y="75"
+     data-friction-x="0.1"
+     data-friction-y="0.1"
+     data-scalar-x="25"
+     data-scalar-y="15">
+    <div class="layer" data-depth="-0.32">
+      <img src="images/7.png">
+    </div>
+    <div class="layer" data-depth="-0.24">
+      <img src="images/6.png">
+    </div>
+    <div class="layer" data-depth="-0.16">
+      <img src="images/5.png">
+    </div>
+    <div class="layer" data-depth="-0.08">
+      <img src="images/4.png">
+    </div>
+    <div class="layer" data-depth="+0.00">
+      <img src="images/3.png">
+    </div>
+    <div class="layer" data-depth="+0.04">
+      <img src="images/2.png">
+    </div>
+    <div class="layer" data-depth="+0.16">
+      <img src="images/1.png">
+    </div>
+    <div class="layer" data-depth="+0.24">
+      <img src="images/0.png">
+    </div>
+  </div>
+</div>
+
+<script src="./parallax.min.js"></script>
+<script>
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      document.querySelector('#container').classList.remove('container_hidden');
+      document.querySelector('#loading').classList.add('loading_hidden');
+    }, 2000);
+  });
+  var scene = document.getElementById('scene');
+  var parallax = new Parallax(scene);
+</script>
+
+</body>
+</html>
